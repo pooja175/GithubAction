@@ -6,7 +6,7 @@ on:
 
 jobs:
   compile:
-    runs-on: self-hosted
+    runs-on: [self-hosted, runner-2]
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 17
@@ -19,7 +19,7 @@ jobs:
       run: mvn -B package --file pom.xml
 
   security-check:
-    runs-on: self-hosted
+    runs-on: [self-hosted, runner-2]
     needs: compile #Security-check only runs after complition of compile job
 
     steps:
